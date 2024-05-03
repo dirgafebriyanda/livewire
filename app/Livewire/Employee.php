@@ -3,9 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\Employee as ModelsEmployee;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
-
+#[Title('Employee')]
 class Employee extends Component
 {
     use WithPagination;
@@ -113,14 +114,5 @@ class Employee extends Component
         return view('livewire.employee', [
             'dataemployees' => $data
         ]);
-    }
-
-    public $currentPage = 'home';
-
-    protected $listeners = ['navigateTo'];
-
-    public function navigateTo($page)
-    {
-        $this->currentPage = $page;
     }
 }
