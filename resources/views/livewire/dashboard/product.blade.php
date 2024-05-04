@@ -7,12 +7,18 @@
                                 class="fas fa-tachometer-alt"></i> Dashboard</a>
                         /
                         List
-                        Users</strong>
+                        Product</strong>
                 </div>
                 <button class="btn btn-primary btn-sm btn-rounded" data-mdb-ripple-init data-mdb-modal-init
                     data-mdb-target="#productAddModal"><i class="fas fa-plus-square"></i></button>
             </div>
             <div class="card-body">
+                <div class="row d-flex justify-content-end">
+                    <div class="col-sm-4 ">
+                        <input type="search" name="" id="" class="form-control" placeholder="Search..."
+                            wire:model.live="search">
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover text-nowrap">
                         <thead>
@@ -41,6 +47,7 @@
                     </table>
                 </div>
             </div>
+            {{ $product->links() }}
         </div>
         <!-- Modal -->
         <div wire:ignore.self class="modal fade" id="productAddModal" tabindex="-1" aria-labelledby="exampleModalLabel"

@@ -6,15 +6,20 @@ use App\Models\Product as ModelsProduct;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithPagination;
+
 #[Title('Dashboard | Product')]
 #[Layout('dashboard.layouts.app')]
 class Product extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $image; 
     public $name; 
     public $type; 
     public $price; 
     public $description;
+    public $search;
     public $modalVisible = false;
 
     public function clear()
@@ -27,7 +32,12 @@ class Product extends Component
 
     public function render()
     {
-            $product = ModelsProduct::orderBy('name', 'asc')->paginate(10);
+        if ($this->search != null) {
+            $product = ModelsProduct::where('name', 'like', '%' . $this->search . '%')
+                ->orderBy('id', 'asc')->paginate(5);
+        } else {
+            $product = ModelsProduct::orderBy('id', 'asc')->paginate(5);
+        }
         return view('livewire.dashboard.product', [
             'product' => $product
         ]);

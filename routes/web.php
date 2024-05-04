@@ -6,6 +6,7 @@ use App\Livewire\Contact;
 use App\Livewire\Faq;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Login;
+use App\Livewire\Dashboard\Customer;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\Dashboard\User;
 use App\Livewire\Dashboard\Product;
@@ -27,6 +28,7 @@ Route::get('/employee', Employee::class);
 Route::get('/dashboard', Dashboard::class)->name('dashboard');
 Route::get('/dashboard/user', User::class)->name('dashboard.user');
 Route::get('/dashboard/product', Product::class)->name('dashboard.product');
+Route::get('/dashboard/customer', Customer::class)->name('dashboard.customer');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', Register::class)->name('register');
