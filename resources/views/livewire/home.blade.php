@@ -140,115 +140,28 @@
         <h1 class="text-center mb-3">Produk Terbaik</h1>
         <p class="text-center mb-3 lead">Berbagai macam jenis produk yang kami tawarkan.</p>
         <div class="row justify-content-center">
-            <div class="col-6 col-sm-3 mb-4">
-                <div class="card shadow fw-bold">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                        alt="Fissure in Sandstone" />
-                    <div class="card-body">
-                        <h5 class="card-title">Spanduk</h5>
-                        <p class="card-text">Tanpa Desain</p>
-                        <p class="card-text">Rp. 23.000/M</p>
-                        <a href="#!" class="btn btn-dark  btn-rounded w-100" data-mdb-ripple-init><i
-                                class="fas fa-cart-plus"></i> Order Now</a>
+            @foreach ($product as $item)
+                @if ($item->status == 1)
+                    <div class="col-6 col-sm-3 mb-4">
+                        <div class="card shadow fw-bold">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
+                                alt="Fissure in Sandstone" />
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $item->name }}</h5>
+                                <h6 class="card-text">Jenis : {{ $item->type }}<h6>
+                                        <h6 class="card-text">Harga : Rp. {{ $item->price }}<h6>
+                                                <h6 class="card-text">Spesifikasi : {{ $item->description }}<h6>
+                                                        <a href="#!" class="btn btn-dark  btn-rounded w-100"
+                                                            data-mdb-ripple-init><i class="fas fa-cart-plus"></i> Order
+                                                            Now</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3 mb-4">
-                <div class="card shadow fw-bold">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                        alt="Fissure in Sandstone" />
-                    <div class="card-body">
-                        <h5 class="card-title">Spanduk</h5>
-                        <p class="card-text">Ada Desain</p>
-                        <p class="card-text">Rp. 20.000/M</p>
-                        <a href="#!" class="btn btn-dark  btn-rounded w-100" data-mdb-ripple-init><i
-                                class="fas fa-cart-plus"></i> Order Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3 mb-4">
-                <div class="card shadow fw-bold">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                        alt="Fissure in Sandstone" />
-                    <div class="card-body">
-                        <h5 class="card-title">Stempel</h5>
-                        <p class="card-text">Flash</p>
-                        <p class="card-text">Rp. 75.000</p>
-                        <a href="#!" class="btn btn-dark  btn-rounded w-100" data-mdb-ripple-init><i
-                                class="fas fa-cart-plus"></i> Order Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3 mb-4">
-                <div class="card shadow fw-bold">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                        alt="Fissure in Sandstone" />
-                    <div class="card-body">
-                        <h5 class="card-title">Stempel</h5>
-                        <p class="card-text">Runaflek</p>
-                        <p class="card-text">Rp. 75.000</p>
-                        <a href="#!" class="btn btn-dark  btn-rounded w-100" data-mdb-ripple-init><i
-                                class="fas fa-cart-plus"></i> Order Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-6 col-sm-3 mb-4">
-                <div class="card shadow fw-bold">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                        alt="Fissure in Sandstone" />
-                    <div class="card-body">
-                        <h5 class="card-title">Sticker</h5>
-                        <p class="card-text">A3</p>
-                        <p class="card-text">Rp. 20.000/3Pcs</p>
-                        <a href="#!" class="btn btn-dark  btn-rounded w-100" data-mdb-ripple-init><i
-                                class="fas fa-cart-plus"></i> Order Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3 mb-4">
-                <div class="card shadow fw-bold">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                        alt="Fissure in Sandstone" />
-                    <div class="card-body">
-                        <h5 class="card-title">Neon Box</h5>
-                        <p class="card-text">Flash</p>
-                        <p class="card-text">Rp. 1.500.000</p>
-                        <a href="#!" class="btn btn-dark  btn-rounded w-100" data-mdb-ripple-init><i
-                                class="fas fa-cart-plus"></i> Order Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3 mb-4">
-                <div class="card shadow fw-bold">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                        alt="Fissure in Sandstone" />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#!" class="btn btn-dark  btn-rounded w-100" data-mdb-ripple-init><i
-                                class="fas fa-cart-plus"></i> Order Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3 mb-4">
-                <div class="card shadow fw-bold">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
-                        alt="Fissure in Sandstone" />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#!" class="btn btn-dark  btn-rounded w-100" data-mdb-ripple-init><i
-                                class="fas fa-cart-plus"></i> Order Now</a>
-                    </div>
-                </div>
-            </div>
+                @endif
+            @endforeach
         </div>
         <div class="d-flex justify-content-center">
-            <a href="/product" class="btn btn-dark btn-rounded" data-mdb-ripple-init>
+            <a wire:navigate href="{{ route('product') }}" class="btn btn-dark btn-rounded" data-mdb-ripple-init>
                 Lainnya <i class="fas fa-arrow-right me-2"></i>
             </a>
         </div>

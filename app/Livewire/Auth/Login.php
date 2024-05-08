@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -23,7 +24,7 @@ class Login extends Component
         ];
 
         if (auth()->attempt($credentials)) {
-            return redirect('/dashboard');
+        return $this->redirect('/dashboard', navigate: true);
         } else {
             // Jika login gagal, tampilkan pesan error
             session()->flash('error', 'Email atau password salah.');
