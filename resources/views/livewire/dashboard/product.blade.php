@@ -32,7 +32,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Type</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Home Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -44,12 +44,11 @@
                                     <td>{{ $item->type }}</td>
                                     <td>Rp. {{ $item->price }}</td>
                                     <td>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch"
-                                                id="flexSwitchCheckDefault" {{ $item->status == 1 ? 'checked' : '' }} />
-                                            <label class="form-check-label" for="flexSwitchCheckDefault">Show in
-                                                home</label>
-                                        </div>
+                                        @if ($item->status == 1)
+                                            <i class="fas fa-check text-success"></i>
+                                        @else
+                                            <i class="fas fa-x text-danger"></i>
+                                        @endif
                                     </td>
                                     <td>
                                         <a class="btn btn-dark btn-sm btn-rounded"><i class="fas fa-eye"></i></a>
@@ -63,8 +62,8 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $product->links() }}
             </div>
-            {{ $product->links() }}
         </div>
         <!-- Modal Product-->
         <div wire:ignore.self class="modal fade" data-mdb-backdrop="static" data-mdb-keyboard="false"
@@ -126,8 +125,8 @@
         <!-- Modal Product-->
 
         <!-- Modal Delete-->
-        <div wire:ignore.self data-mdb-backdrop="static" data-mdb-keyboard="false" class="modal fade"
-            id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div wire:ignore.self data-mdb-backdrop="static" data-mdb-keyboard="false" class="modal fade" id="deleteModal"
+            tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">

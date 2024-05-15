@@ -5,16 +5,18 @@
                 <div class="col-sm-4">
                     <div class="card shadow mt-4" style="border-radius: 1rem;">
                         <div class="row g-0">
-                            <div class="col-md-6 col-lg-12 d-flex align-items-center">
-                                @if (session()->has('error'))
-                                    <div>{{ session('error') }}</div>
-                                @endif
+                            <div class="col-lg-12 d-flex align-items-center">
                                 <div class="card-body text-black">
                                     <form>
-                                        <div class="d-flex align-items-center mb-2 justify-content-center">
-                                            <i class="fas fa-cubes fa-4x me-3" style="color: #19ff75;"></i>
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <a class="text-reset" href="https://bskreatif.com/"><img
+                                                    src="{{ asset('img/logo bskreatif.png') }}" height="20"
+                                                    alt="" loading="lazy" /></a>
                                         </div>
-                                        <h5 class="text-center fw-bold mb-3">Login</h5>
+                                        <h5 class="text-center fw-bold py-3">Login</h5>
+                                        @if (session()->has('error'))
+                                            <div class="alert alert-danger">{{ session('error') }}</div>
+                                        @endif
                                         <div data-mdb-input-init class="form-outline mb-4">
                                             <input wire:model="email" type="email" id="form2Example17"
                                                 class="form-control form-control-lg" />

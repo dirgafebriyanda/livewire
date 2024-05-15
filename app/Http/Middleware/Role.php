@@ -14,12 +14,16 @@ class Role
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-     public function handle(Request $request, Closure $next, string $role): Response
+      public function handle(Request $request, Closure $next): Response
     {
-        if (! $request->user()->hasRole($role)) {
-        return redirect('/dashboard')->with('error', 'Unauthorized');
+        $roles = array_slice(func_get_args(), 2);
+
+    foreach ($roles as $role) { 
+        $user = Auth::user()->role;
+        if( $user == $role){
+            return $next($request);
         }
- 
-        return $next($request);
+    }
+        return redirect()->back()->with('error', 'Unauthorized');   
     }
 }
